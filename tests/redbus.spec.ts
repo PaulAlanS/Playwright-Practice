@@ -6,16 +6,17 @@ test('Search buses on RedBus', async ({ page }) => {
   await page.goto('https://www.redbus.in/');
 
   // Enter FROM city
-  await page.locator('#src').click();
-  await page.locator('#src').fill('Madurai');
+  // Enter FROM city
+  await page.getByLabel('From').click();
+  await page.getByLabel('From').fill('Madurai');
   await page.waitForTimeout(2000); // wait for dropdown
-  await page.locator('li >> text=Chennai').first().click();
+  await page.locator('li >> text=Madurai').first().click();
 
   // Enter TO city
-  await page.locator('#dest').click();
-  await page.locator('#dest').fill('Chennai');
+  await page.getByLabel('To').click();
+  await page.getByLabel('To').fill('Chennai');
   await page.waitForTimeout(5000);
-  await page.locator('li >> text=Bangalore').first().click();
+  await page.locator('li >> text=Chennai').first().click();
 
   // Select Date
   await page.locator('#onward_cal').click();
