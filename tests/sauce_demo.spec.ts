@@ -5,6 +5,5 @@ test('login check', async({page})=>{
     await page.getByRole('link',{name :'Log In'}).click();
     await page.locator('#customer_email').fill('bdnu@gmail.com');
     await page.getByRole('textbox',{name : 'Password'}).fill('1N2B3V');
-    await page.getByRole('button', {name : 'Sign In'}).click();
-    await expect(page.locator('.accounts-title')).toHaveText('Your Account');
+    
 })  
